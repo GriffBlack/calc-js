@@ -20,7 +20,7 @@ document.querySelector('.ac').onclick = clearAll;
 
 document.querySelector('.buttons').onclick = (event) => {
     if (!event.target.classList.contains('btn')) return;
-    if (!event.target.classList.contains('ac')) return;
+    if (event.target.classList.contains('ac')) return;
 
     out.textContent = '';
 
