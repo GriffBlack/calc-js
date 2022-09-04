@@ -21,14 +21,19 @@
     font-size: 4rem;
     margin: 0;
 }
-.buttons{
+.calc_btn{
     display: grid;
     grid-template-areas: 
-    "ac plus-minus percent division"
+    "btn btn btn btn"
+    "btn btn btn btn"
+    "btn btn btn btn"
+    "btn btn btn btn"
+    "btn btn btn btn";
+    /* "ac plus-minus percent AC"
     "seven eight nine multiple"
     "four five six minus"
     "one two three plus"
-    "zero zero dot equal";
+    "zero zero dot equal"; */
     grid-gap: 7px;
     justify-items: center;
 }
