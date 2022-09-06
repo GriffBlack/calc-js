@@ -3,8 +3,8 @@ let b = ''; // secont number
 let sign = ''; // знак операции
 let finish  = false;
 
-const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'X', '/'];
+// const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
+// const action = ['-', '+', 'X', '/'];
 const body = ['(', ')', '%', 'AC',
               '7', '8', '9', '/',
               '4', '5', '6', 'x',
@@ -22,14 +22,29 @@ function addInput(body) {
         let btn = document.createElement('div');
         btn.classList.add('btn');
         btn.innerHTML = symb;
-        calcBtn.appendChild(btn);
+        if (/[ '\-', '+', 'x', '/', '=']/.test(symb)) {
+            btn.classList.add('bg-orange');
+        } else if (/['(', ')', '%', 'AC']/.test(symb)) {
+            btn.classList.add('bg-grey');
+        }
+        calcBtn.append(btn);
         // calcBtn.insertBefore(btn, calcBtn.firstChild);
         // console.log(symb)
     })
-    calc.appendChild(calcBtn);
+    calc.append(calcBtn);
 }
 
-function addOutput() { };
+function addOutput() { 
+    let calcResult = document.createElement('div');
+    calcResult.classList.add('calc_form');
+    let calcInput = document.createElement('input');
+    calcInput.classList.add('calc_result');
+    calcInput.setAttribute("type", "text");
+    calcInput.innerHTML = 0;
+    calcResult.append(calcInput);
+    calc.prepend(calcResult);
+    // calc.insertBefore(calcResult, calc.firstChild);
+};
 
 // экран    
 // const out = document.querySelector('.calc-screen p');
