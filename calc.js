@@ -37,7 +37,7 @@ function addInput(body) {
 function addOutput() { 
     let calcResult = document.createElement('div');
     calcResult.classList.add('calc_form');
-    let calcInput = document.createElement('input');
+    let calcInput = document.createElement('p');
     calcInput.classList.add('calc_result');
     calcInput.setAttribute("type", "text");
     calcInput.innerHTML = 0;
