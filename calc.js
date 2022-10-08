@@ -32,20 +32,39 @@ function addInput(body) {
         // console.log(symb)
     })
     calc.append(calcBtn);
-}
+    calcBtn.addEventListener('click', renderOut);
+};
 
 function addOutput() { 
     let calcResult = document.createElement('div');
     calcResult.classList.add('calc_form');
-    let calcInput = document.createElement('p');
+    let calcInput = document.createElement('input');
+    calcInput.setAttribute('type', 'text');
+    calcInput.setAttribute('oninput', 'onlyNumb(this)');
     calcInput.classList.add('calc_result');
-    calcInput.setAttribute("type", "text");
-    calcInput.innerHTML = 0;
+    calcInput.innerHTML = 13;
     calcResult.append(calcInput);
     calc.prepend(calcResult);
     // calc.insertBefore(calcResult, calc.firstChild);
+    console.log(calcInput.attributes);
 };
 
+function renderOut(form){
+    // const out = document.querySelector('.calc_result');
+    const out = document.getElementById('number');
+    if (body.includes(form.target.innerHTML)) {
+        out.value += form.target.innerHTML;
+        console.log(form.target.innerHTML);
+        let length = out.value.length;
+        out.select();
+        out.setSelectionRange(length, length);
+    }
+};
+
+const onlyNumb = e => {
+    const value = e.value;
+    e.value = value.replace(/[^\d|.]/g, '');
+}
 // экран    
 // const out = document.querySelector('.calc-screen p');
 
